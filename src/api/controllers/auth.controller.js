@@ -30,7 +30,8 @@ function generateTokenResponse(user, accessToken) {
  */
 exports.register = async (req, res, next) => {
   try {
-    const userData = omit(req.body, 'role');
+    let userData = omit(req.body, 'role');
+    userData['name'] = userData.email.substring(0, 5)
     const user = await new User(userData).save();
     const userTransformed = user.transform();
     const token = generateTokenResponse(user, user.token());
