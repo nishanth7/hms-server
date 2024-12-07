@@ -3,6 +3,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = require('./swaggerDef');
 // const swaggerDefinition = require(__dirname.split('api')[0] + 'api\\docs\\swaggerDef');
+// const swaggerDefinition = require(__dirname.split('api')[0] + 'api\\docs\\swaggerDef');
 
 const router = express.Router();
 
