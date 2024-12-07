@@ -1,5 +1,5 @@
-const { version } = require('../../../package.json');
-const { port } = require('../../config/vars');
+const { version } = require('../../../../package.json');
+const { port } = require('../../../config/vars');
 
 const swaggerDef = {
   openapi: '3.0.0',
