@@ -17,10 +17,10 @@ function generateTokenResponse(user, accessToken) {
   const refreshToken = RefreshToken.generate(user).token;
   const expiresIn = moment().add(jwtExpirationInterval, 'minutes');
   return {
-    tokenType,
-    accessToken,
-    refreshToken,
-    expiresIn,
+    token_type: tokenType,
+    access_token: accessToken,
+    refresh_token: refreshToken,
+    expires_in: expiresIn,
   };
 }
 

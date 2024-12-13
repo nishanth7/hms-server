@@ -1,7 +1,7 @@
 const httpStatus = require('http-status');
 const { omit } = require('lodash');
 const User = require('../models/user.model');
-
+const { menu, permissionsOfRoles } = require('../../config/vars');
 /**
  * Load user and append to req.
  * @public
@@ -90,6 +90,31 @@ exports.list = async (req, res, next) => {
     next(error);
   }
 };
+
+/**
+ * Get Menu
+ * @public
+ */
+exports.menu = async (req, res, next) => {
+  try {
+    res.json(menu);
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Get Menu
+ * @public
+ */
+exports.permissions = async (req, res, next) => {
+  try {
+    res.json(permissionsOfRoles);
+  } catch (error) {
+    next(error);
+  }
+};
+
 
 /**
  * Delete user

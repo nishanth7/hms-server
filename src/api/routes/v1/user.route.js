@@ -1,12 +1,14 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/user.controller');
-const { authorize, ADMIN, LOGGED_USER } = require('../../middlewares/auth');
+const { authorize, ADMIN, LOGGED_USER, MANAGER } = require('../../middlewares/auth');
 const {
   listUsers,
   createUser,
   replaceUser,
   updateUser,
+  menu,
+  permissions
 } = require('../../validations/user.validation');
 
 const router = express.Router();
@@ -88,6 +90,30 @@ router
    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated Users can access the data
    */
   .get(authorize(), controller.loggedIn);
+
+
+  router
+  .route('/menu')
+  /**
+   * @api {get} v1/menu List Users
+   * @apiDescription Get a menu list
+   * @apiVersion 1.0.0
+   * @apiName Get menu
+   * @apiGroup User
+   * @apiPermission Logged User
+   *
+   * @apiHeader {String} Authorization   User's access token
+   *
+   * @apiSuccess {Object[]} r.eturn menu
+   *
+   * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+   * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+   */
+  .get(authorize(), validate(menu), controller.menu)
+
+  router
+  .route('/permissions')
+  .get(authorize(MANAGER), validate(permissions), controller.permissions)
 
 router
   .route('/:userId')

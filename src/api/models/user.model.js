@@ -11,7 +11,7 @@ const { env, jwtSecret, jwtExpirationInterval } = require('../../config/vars');
 /**
 * User Roles
 */
-const roles = ['user', 'admin'];
+const roles = ['USER', 'ADMIN', 'MANAGER'];
 
 /**
  * User Schema
@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: roles,
-    default: 'user',
+    default: 'USER',
   },
   picture: {
     type: String,
@@ -70,6 +70,10 @@ userSchema.pre('save', async function save(next) {
     const hash = await bcrypt.hash(this.password, rounds);
     this.password = hash;
 
+    if (!this.picture) {
+        this.picture = 'images/avatar.jpg';
+    }
+
     return next();
   } catch (error) {
     return next(error);
@@ -87,6 +91,8 @@ userSchema.method({
     fields.forEach((field) => {
       transformed[field] = this[field];
     });
+
+    transformed['avatar'] = this.picture;
 
     return transformed;
   },

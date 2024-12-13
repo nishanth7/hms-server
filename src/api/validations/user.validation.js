@@ -14,6 +14,15 @@ module.exports = {
     },
   },
 
+  // GET /v1/users/menu
+  menu: {
+  },
+  // GET /v1/users/permissions
+
+  permissions: {
+    },
+
+
   // POST /v1/users
   createUser: {
     body: {
