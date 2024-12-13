@@ -534,5 +534,6 @@ module.exports = {
     ADMIN: ['canAdd', 'canDelete', 'canEdit', 'canRead'],
     MANAGER: ['canAdd', 'canEdit', 'canRead'],
     GUEST: ['canRead'],
+    GUEST: ['canRead'],
   }  
 };
