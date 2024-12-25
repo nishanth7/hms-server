@@ -399,7 +399,7 @@ module.exports = {
           }
         ],
         "permissions": {
-          "ONLY": "ADMIN"
+          "only": "ADMIN"
         }
       },
       {
