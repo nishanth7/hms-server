@@ -311,8 +311,8 @@ module.exports = {
           }
         ],
         "permissions": {
-          "except": [
-            "DEMO",
+          "only": [
+            "ADMIN",
           ]
         }
       },
@@ -386,7 +386,7 @@ module.exports = {
           }
         ],
         "permissions": {
-          "except": "GUEST"
+          "ONLY": "ADMIN"
         }
       },
       {
@@ -407,7 +407,7 @@ module.exports = {
           }
         ],
         "permissions": {
-          "except": "GUEST"
+          "except": "ADMIN"
         }
       },
       {
@@ -533,7 +533,7 @@ module.exports = {
   permissionsOfRoles: {
     ADMIN: ['canAdd', 'canDelete', 'canEdit', 'canRead'],
     MANAGER: ['canAdd', 'canEdit', 'canRead'],
-    GUEST: ['canRead'],
+    USER: ['canRead'],
     GUEST: ['canRead'],
   }  
 };
