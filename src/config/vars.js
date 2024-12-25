@@ -31,6 +31,11 @@ module.exports = {
         "badge": {
           "color": "red-50",
           "value": "5"
+        },
+        "permissions": {
+          "only": [
+            "MANAGER","USER", "ADMIN"
+          ]
         }
       },
       {
