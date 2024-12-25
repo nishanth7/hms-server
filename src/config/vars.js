@@ -332,7 +332,7 @@ module.exports = {
             "name": "route-guard",
             "type": "link",
             "permissions": {
-              "except": "GUEST"
+              "only": "ADMIN"
             }
           },
           {
@@ -340,7 +340,7 @@ module.exports = {
             "name": "test",
             "type": "link",
             "permissions": {
-              "only": "DEMO"
+              "only": "ADMIN"
             }
           }
         ]
@@ -356,7 +356,12 @@ module.exports = {
             "name": "gallery",
             "type": "link"
           }
-        ]
+        ],
+        "permissions": {
+          "only": [
+            "ADMIN",
+          ]
+        }
       },
       {
         "route": "forms",
@@ -407,7 +412,7 @@ module.exports = {
           }
         ],
         "permissions": {
-          "except": "ADMIN"
+          "only": "ADMIN"
         }
       },
       {
@@ -426,7 +431,12 @@ module.exports = {
             "name": "settings",
             "type": "link"
           }
-        ]
+        ],
+        "permissions": {
+          "only": [
+            "ADMIN",
+          ]
+        }
       },
       {
         "route": "https://ng-matero.github.io/extensions/",
@@ -479,7 +489,12 @@ module.exports = {
             "name": "css-helpers",
             "type": "link"
           }
-        ]
+        ],
+        "permissions": {
+          "only": [
+            "ADMIN",
+          ]
+        }
       },
       {
         "route": "menu-level",
