@@ -343,7 +343,10 @@ module.exports = {
               "only": "ADMIN"
             }
           }
-        ]
+        ],
+        "permissions": {
+          "only": "ADMIN"
+        }
       },
       {
         "route": "media",
